@@ -41,18 +41,18 @@ int _strlen(char *s)
 
 int print_number(char *str, params_t *params)
 {
-	unsigned int i = _strlen_(str);
+	unsigned int i = _strlen(str);
 	int neg = (!params->unsign && *str == '-');
 
-	if (!params->percision && *str == '0' && !str[1])
+	if (!params->precision && *str == '0' && !str[1])
 		str = "";
 	if (neg)
 	{
 		str++;
 		i--;
 	}
-	if (params->percision != UNIT_MAX)
-		while (i++ < params->percision)
+	if (params->precision != UINT_MAX)
+		while (i++ < params->precision)
 			*--str = '0';
 	if (neg)
 		*--str = '-';
