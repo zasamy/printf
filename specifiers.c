@@ -41,7 +41,7 @@ return (NULL);
 }
 /**
  * get_print_func - finds the format func
- * @m: the format string
+ * @s: the format string
  * @ap:argument pointer
  * @params: the parameters struct
  *
@@ -55,15 +55,15 @@ return (0);
 }
 /**
  * get_flag - finds the flag func
- * @m: the format string
+ * @s: the format string
  * @params: the parameters struct
  *
  * Return: if flag wasvalid
  */
-int get_flag(char *m, params_t *params)
+int get_flag(char *s, params_t *params)
 {
 int i = 0;
-switch (*m)
+switch (*s)
 {
 case '+':
 i = params->plus_flag = 1;
@@ -84,14 +84,14 @@ break;
 return (i);
 /**
  * get_modifier - find the modifierfunc
- * @m: the format of string
+ * @s: the format of string
  * @params: the parameters struct
  * Return: if modifier is valid
  */
-int get_modifier(char *m, params_t *params)
+int get_modifier(char *s, params_t *params)
 {
 int i = 0
-switch (*m)
+switch (*s)
 {
 case 'h':
 i = params->h_modifier = 1;
@@ -104,23 +104,23 @@ return (i);
 }
 /**
  * get_width - have the width from the format string
- * @m: format string
+ * @s: format string
  * @ap: argument pointer
  * @params_t: paramater str
  * Return: new pointer
  */
-char *get_width(char *m, params_t, va_list ap)
+char *get_width(char *s, params_t, va_list ap)
 {
 int d = 0;
-if (*m == '*')
+if (*s == '*')
 {
 d = va_arg(ap, int);
 m++
 }
 else
 {
-while (isdigit(*m))
-d = d * 10 + (*m++ - '0')
+while (isdigit(*s))
+d = d * 10 + (*s++ - '0')
 params->width = d;
 return (s);
 }
