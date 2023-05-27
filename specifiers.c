@@ -1,11 +1,11 @@
 #include "main.h"
 /**
  * get_specifier - find the format functiom
- * @m: the format dtring
+ * @s: the format dtring
  *
  * Return: Nber of bytes printed
  */
-int (*get_specifier(char *m))(va_list ap, params_t *params)
+int (*get_specifier(char *s))(va_list ap, params_t *params)
 {
 specifier_t specifiers[] = {
 {"d", print_int},
@@ -18,16 +18,16 @@ specifier_t specifiers[] = {
 {"u", print_unsigned},
 {"x", print_hex},
 {"X", print_HEX},
-{"p", print_adress},
+{"p", print_address},
 {"S", print_S},
 {"r", print_rev},
 {"R", print_rot13},
 {NULL, NULL}
 };
-int i = 0
+int i = 0;
 while (specifiers[i].specifier)
 {
-if (*m == specifiers[i].specifier[0])
+if (*s == specifiers[i].specifier[0])
 {
 return (specifiers[i].f);
 }
@@ -47,7 +47,8 @@ return (NULL);
  *
  * Return: the number of bytes printed
  */
-int get_print_func(char *m, va_list ap, params_t *params)
+int get_print_func(char *s, va_list ap, params_t *params)
+{
 if (f)
 return (f(ap, params));
 return (0);
