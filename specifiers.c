@@ -1,11 +1,11 @@
 #include "main.h"
 /**
  * get_specifier - find the format functiom
- * @m: the format dtring
+ * @s: the format dtring
  *
  * Return: Nber of bytes printed
  */
-int (*get_specifier(char *m))(va_list ap, params_t *params)
+int (*get_specifier(char *s))(va_list ap, params_t *params)
 {
 specifier_t specifiers[] = {
 {"d", print_int},
@@ -18,16 +18,16 @@ specifier_t specifiers[] = {
 {"u", print_unsigned},
 {"x", print_hex},
 {"X", print_HEX},
-{"p", print_adress},
+{"p", print_address},
 {"S", print_S},
 {"r", print_rev},
 {"R", print_rot13},
 {NULL, NULL}
 };
-int i = 0
+int i = 0;
 while (specifiers[i].specifier)
 {
-if (*m == specifiers[i].specifier[0])
+if (*s == specifiers[i].specifier[0])
 {
 return (specifiers[i].f);
 }
@@ -41,29 +41,34 @@ return (NULL);
 }
 /**
  * get_print_func - finds the format func
- * @m: the format string
+ * @s: the format string
  * @ap:argument pointer
  * @params: the parameters struct
  *
  * Return: the number of bytes printed
  */
-int get_print_func(char *m, va_list ap, params_t *params)
+int get_print_func(char *s, va_list ap, params_t *params)
+{
 if (f)
 return (f(ap, params));
 return (0);
 }
 /**
  * get_flag - finds the flag func
- * @m: the format string
+ * @s: the format string
  * @params: the parameters struct
  *
  * Return: if flag wasvalid
  */
-int get_flag(char *m, params_t *params)
+int get_flag(char *s, params_t *params)
 {
 int i = 0;
+<<<<<<< HEAD
 
 switch (*m)
+=======
+switch (*s)
+>>>>>>> 36a54f84b5e2d8fc7c0bc102f9f1c6235dd9f61e
 {
 case '+':
 i = params->plus_flag = 1;
@@ -84,14 +89,14 @@ break;
 return (i);
 /**
  * get_modifier - find the modifierfunc
- * @m: the format of string
+ * @s: the format of string
  * @params: the parameters struct
  * Return: if modifier is valid
  */
-int get_modifier(char *m, params_t *params)
+int get_modifier(char *s, params_t *params)
 {
 int i = 0
-switch (*m)
+switch (*s)
 {
 case 'h':
 i = params->h_modifier = 1;
@@ -104,23 +109,23 @@ return (i);
 }
 /**
  * get_width - have the width from the format string
- * @m: format string
+ * @s: format string
  * @ap: argument pointer
  * @params_t: paramater str
  * Return: new pointer
  */
-char *get_width(char *m, params_t, va_list ap)
+char *get_width(char *s, params_t, va_list ap)
 {
 int d = 0;
-if (*m == '*')
+if (*s == '*')
 {
 d = va_arg(ap, int);
 m++
 }
 else
 {
-while (isdigit(*m))
-d = d * 10 + (*m++ - '0')
+while (isdigit(*s))
+d = d * 10 + (*s++ - '0')
 params->width = d;
 return (s);
 }
