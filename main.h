@@ -33,11 +33,11 @@
  * @precision: field precision specified
  *
  * @h_modifier: on if h_modifier is specified
- * l_modifier: on if l_modifier is specifies
+ * @l_modifier: on if l_modifier is specifies
  *
  */
 
-typedef struct parametrs 
+typedef struct parameters 
 {
 	unsigned int unsign       : 1;
 	unsigned int plus_flag    : 1;
