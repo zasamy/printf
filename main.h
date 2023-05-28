@@ -67,7 +67,7 @@ typedef struct specifier
 } specifier_t;
 
 /* _put.c module*/
-void _puts(char *str);
+int _puts(char *str);
 int _putchar(char c);
 
 /* print_function.c module */
