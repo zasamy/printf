@@ -49,6 +49,7 @@ return (NULL);
  */
 int get_print_func(char *s, va_list ap, params_t *params)
 {
+int (*f)(va_list, params_t *) = get_specifier(s);
 if (f)
 return (f(ap, params));
 return (0);
@@ -90,7 +91,7 @@ return (i);
  */
 int get_modifier(char *s, params_t *params)
 {
-int i = 0
+int i = 0;
 switch (*s)
 {
 case 'h':
@@ -106,21 +107,23 @@ return (i);
  * get_width - have the width from the format string
  * @s: format string
  * @ap: argument pointer
- * @params_t: paramater str
+ * @params: paramater str
  * Return: new pointer
  */
-char *get_width(char *s, params_t, va_list ap)
+char *get_width(char *s, params_t *params, va_list ap)
 {
 int d = 0;
 if (*s == '*')
 {
 d = va_arg(ap, int);
-m++
+s++;
 }
 else
 {
-while (isdigit(*s))
-d = d * 10 + (*s++ - '0')
+while (_isdigit(*s))
+d = d * 10 + (*s++ - '0');
 params->width = d;
 return (s);
+}
+}
 }
