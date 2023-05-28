@@ -7,7 +7,7 @@
  * Return: nothing
 */
 
-int _put(char *str)
+int _puts(char *str)
 {
 	char *a = str;
 
