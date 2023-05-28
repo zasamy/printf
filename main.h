@@ -13,8 +13,6 @@
 
 #define NULL_STRING "(null)"
 
-#define PARAMS_STRING "(null)"
-
 #define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 #define CONVERT_LOWERCASE 1
