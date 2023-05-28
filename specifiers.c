@@ -64,12 +64,8 @@ return (0);
 int get_flag(char *s, params_t *params)
 {
 int i = 0;
-<<<<<<< HEAD
-
-switch (*m)
-=======
 switch (*s)
->>>>>>> 36a54f84b5e2d8fc7c0bc102f9f1c6235dd9f61e
+switch (*s)
 {
 case '+':
 i = params->plus_flag = 1;
