@@ -51,11 +51,7 @@ int print_string(va_list ap, params_t *params)
 	switch ((int)(!str))
 	case 1:
 		str = NULL_STRING;
-		i = pad = _strlen(str);
-		if (params->precision < pad)
-			j = pad = params->precision;
-		if (params->minus_flag)
-			j = pad = _strlen(str);
+		j = pad = _strlen(str);
 		if (params->precision < pad)
 			j = pad = params->precision;
 		if (params->minus_flag)
@@ -88,7 +84,6 @@ int print_percent(va_list ap, params_t *params)
 {
 	(void)ap;
 	(void)params;
-
 	return (_putchar('%'));
 }
 /**

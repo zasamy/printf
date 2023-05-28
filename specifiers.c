@@ -8,10 +8,10 @@
 int (*get_specifier(char *s))(va_list ap, params_t *params)
 {
 	specifier_t specifiers[] = {
-		{"d", print_int},
 		{"c", print_char},
-		{"s", print_string},
+		{"d", print_int},
 		{"i", print_int},
+		{"s", print_string},
 		{"%", print_percent},
 		{"b", print_binary},
 		{"o", print_octal},
@@ -29,10 +29,6 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 	while (specifiers[i].specifier)
 	{
 		if (*s == specifiers[i].specifier[0])
-		{
-			return (specifiers[i].f);
-		}
-		i++;
 		{
 			return (specifiers[i].f);
 		}
@@ -102,7 +98,7 @@ int get_modifier(char *s, params_t *params)
 		case 'h':
 			i = params->h_modifier = 1;
 			break;
-		case 'l':
+		case ' l':
 			i = params->l_modifier = 1;
 			break;
 	}
