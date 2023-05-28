@@ -9,10 +9,7 @@
 
 int _isdigit(int c)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	else
-		return (0);
+	return (c >= '0' && c <= '9');
 }
 
 /**
@@ -25,7 +22,7 @@ int _strlen(char *s)
 {
 	int i = 0;
 
-	while (s[i] != '\0')
+	while (*s++)
 		i++;
 	return (i);
 }
@@ -77,7 +74,7 @@ int print_number_right_shift(char *str, params_t *params)
 	char pad_char = ' ';
 
 	if (params->zero_flag && !params->minus_flag)
-	pad_char = '0';
+		pad_char = '0';
 	neg = neg2 = (!params->unsign && *str == '-');
 	if (neg && i < params->width && pad_char == '0' && !params->minus_flag)
 		str++;

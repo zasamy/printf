@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _printf - prints
+ * _printf - printf function
  * @format: the format of string
- * Return: Nber of printed bytes
+ * Return: number of printed bytes
  */
 int _printf(const char *format, ...)
 {
