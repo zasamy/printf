@@ -58,7 +58,7 @@ int print_unsigned(va_list ap, params_t *params)
  * print_address - prints adress
  * @ap: argument pointer
  * @params: the parameters struct
- * @params_t: par struct
+ *
  * Return: printed bytes
  */
 int print_address(va_list ap, params_t *params)
