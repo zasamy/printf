@@ -17,19 +17,19 @@ int print_reverse(char *s)
 	{
 		while (*(s + a))
 			a++;
-		ptr = malloc(sizeof(char) * a);
-		if (ptr == NULL)
+		str = malloc(sizeof(char) * a);
+		if (str == NULL)
 		{
-			free(ptr);
+			free(str);
 			return (0);
 		}
 		for (b = (a - 1); b >= 0; b--)
 		{
-			*(ptr + c) = *(s + b);
+			*(str + c) = *(s + b);
 			c++;
 		}
-		*(ptr + a) = '\0';
-		chars_printed = print_string(ptr);
+		*(str + a) = '\0';
+		chars_printed = print_string(str);
 		return (chars_printed);
 	}
 	return (0);
