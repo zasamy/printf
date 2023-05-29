@@ -23,13 +23,13 @@ int printf_HEX(va_list val)
 
 	for (j = 0; j < counter; j++)
 	{
-		array[j] = temp % 16;
+		forhex[j] = temp % 16;
 		temp /= 16;
 	}
-	for (j = counter - 1; j >= 0; i--)
+	for (j = counter - 1; j >= 0; j--)
 	{
 		if (forhex[j] > 9)
-			array[j] = array[j] + 7;
+			forhex[j] = forhex[j] + 7;
 		_putchar(forhex[j] + '0');
 	}
 	free(forhex);

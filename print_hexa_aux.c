@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * printf_HEX_aux - prints an hexadecimal number.
+ * printf_HEX_aux - prints an hexgecimal number.
  * @num: number to print.
- * Return: counter
+ * Return: counter.
  */
 int printf_HEX_aux(unsigned int num)
 {
-	int j;
-	int *forhex;
+	int i;
+	int *array;
 	int counter = 0;
 	unsigned int temp = num;
 
@@ -20,17 +20,17 @@ int printf_HEX_aux(unsigned int num)
 	counter++;
 	array = malloc(counter * sizeof(int));
 
-	for (j = 0; j < counter; j++)
+	for (i = 0; i < counter; i++)
 	{
-		array[j] = temp % 16;
+		array[i] = temp % 16;
 		temp /= 16;
 	}
-	for (j = counter - 1; j >= 0; j--)
+	for (i = counter - 1; i >= 0; i--)
 	{
-		if (forhex[j] > 9)
-			forhex[j] = forhex[j] + 7;
-		_putchar(forhex[i] + '0');
+		if (array[i] > 9)
+			array[i] = array[i] + 7;
+		_putchar(array[i] + '0');
 	}
-	free(forhex);
+	free(array);
 	return (counter);
 }
