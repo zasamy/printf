@@ -13,10 +13,10 @@ int  print_rev_string(va_list list)
 
 	ptr = va_arg(list, const char *);
 
-	size = _strlen(str);
+	size = _strlen(ptr);
 
 	for (j = size - 1; j >= 0; j--)
-		_putchar(str[j]);
+		_putchar(ptr[j]);
 
 	return (size);
 }
